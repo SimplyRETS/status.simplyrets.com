@@ -28,16 +28,18 @@
 
 			<section class="container" id="main">
 				
-					<div class="panel operational">
-						All Systems operational.
+					
+					<div class="panel degraded performance">
+						Degraded performance on Website, API.
 					</div>
+					
 				
 
 				<h4>Systems</h4>
 				<ul class="systems">
 					
 					<li>
-						Website <span class="status operational">operational</span>
+						Website <span class="status degraded performance">degraded performance</span>
 					</li>
 					
 					<li>
@@ -45,13 +47,31 @@
 					</li>
 					
 					<li>
-						API <span class="status operational">operational</span>
+						API <span class="status degraded performance">degraded performance</span>
 					</li>
 					
 				</ul>
 
 				<h4>Incidents</h4>
 				
+					
+					<div class="incident">
+						<span class="date">2016-09-08 15:17:37</span>
+
+						
+							<span class="label degraded performance float-right">degraded performance</span>
+						
+						
+							<span class="label system float-right">API</span>
+						
+							<span class="label system float-right">Website</span>
+						
+						<hr/>
+
+						<span class="title">Database Issues</span>
+						<p>We are experiencing increased database query latency. We are working to resolve the problem and will continue to post updates.</p>
+						
+					</div>
 					
 					<div class="incident">
 						<span class="date">2016-07-22 18:24:00</span>
@@ -66,28 +86,6 @@
 
 						<span class="title">Website Maintenance</span>
 						<p>We are applying maintenance operations to our database. Service should be back soon.</p>
-						
-					</div>
-					
-					<div class="incident">
-						<span class="date">2016-05-26 01:47:55</span>
-
-						
-							<span class="label operational float-right">resolved</span>
-						
-						
-							<span class="label system float-right">API</span>
-						
-							<span class="label system float-right">Website</span>
-						
-						<hr/>
-
-						<span class="title">HTTP 500 Responses</span>
-						<p>We have resolved database connectivity problems causing HTTP 500  responses. We are monitoring the problem and will post any further updates.</p>
-						
-							<p><em>Update 2016-05-26 02:48:37</em><br/>
-							This issue has been resolved.
-							</p>
 						
 					</div>
 					
