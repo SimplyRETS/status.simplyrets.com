@@ -28,9 +28,11 @@
 
 			<section class="container" id="main">
 				
-					<div class="panel operational">
-						All Systems operational.
+					
+					<div class="panel degraded performance">
+						Degraded performance on API, Website.
 					</div>
+					
 				
 
 				<h4>Systems</h4>
@@ -41,17 +43,35 @@
 					</li>
 					
 					<li>
-						API <span class="status operational">operational</span>
+						API <span class="status degraded performance">degraded performance</span>
 					</li>
 					
 					<li>
-						Website <span class="status operational">operational</span>
+						Website <span class="status degraded performance">degraded performance</span>
 					</li>
 					
 				</ul>
 
 				<h4>Incidents</h4>
 				
+					
+					<div class="incident">
+						<span class="date">2017-04-04 16:11:18</span>
+
+						
+							<span class="label degraded performance float-right">degraded performance</span>
+						
+						
+							<span class="label system float-right">API</span>
+						
+							<span class="label system float-right">Website</span>
+						
+						<hr/>
+
+						<span class="title">Database latency</span>
+						<p>We are experiencing some API latency during a database upgrade. We are closely monitoring the situation and attempting to improve query performance.</p>
+						
+					</div>
 					
 					<div class="incident">
 						<span class="date">2017-03-07 20:44:49</span>
