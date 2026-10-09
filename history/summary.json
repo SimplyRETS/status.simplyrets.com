@@ -1,0 +1,38 @@
+[
+  {
+    "name": "API",
+    "url": "https://api.simplyrets.com/health",
+    "icon": "https://icons.duckduckgo.com/ip3/api.simplyrets.com.ico",
+    "slug": "api-health",
+    "status": "up",
+    "uptime": "100.00%",
+    "uptimeDay": "100.00%",
+    "uptimeWeek": "100.00%",
+    "uptimeMonth": "100.00%",
+    "uptimeYear": "100.00%",
+    "time": 158,
+    "timeDay": 158,
+    "timeWeek": 158,
+    "timeMonth": 158,
+    "timeYear": 158,
+    "dailyMinutesDown": {}
+  },
+  {
+    "name": "Website",
+    "url": "https://simplyrets.com/health",
+    "icon": "https://icons.duckduckgo.com/ip3/simplyrets.com.ico",
+    "slug": "site-health",
+    "status": "up",
+    "uptime": "100.00%",
+    "uptimeDay": "100.00%",
+    "uptimeWeek": "100.00%",
+    "uptimeMonth": "100.00%",
+    "uptimeYear": "100.00%",
+    "time": 161,
+    "timeDay": 161,
+    "timeWeek": 161,
+    "timeMonth": 161,
+    "timeYear": 161,
+    "dailyMinutesDown": {}
+  }
+]
