@@ -9,6 +9,7 @@ sites:
   - name: API
     slug: api-health
     url: https://api.simplyrets.com/health
+    icon: https://status.simplyrets.com/api-icon.svg
     expectedStatusCodes:
       - 200
   - name: Website
