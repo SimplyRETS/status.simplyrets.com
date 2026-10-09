@@ -1,0 +1,12 @@
+/* Neutral surfaces over Upptime's dark theme; retain its status colors. */
+:root {
+  color-scheme: dark;
+  --body-background-color: #171717;
+  --body-text-color: #f5f5f5;
+  --card-background-color: #262626;
+  --nav-background-color: #262626;
+  --nav-border-bottom-color: #404040;
+  --nav-current-border-bottom-color: #a3a3a3;
+  --card-border-color: #404040;
+  --tag-color: #171717;
+}
