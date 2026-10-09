@@ -1,0 +1,32 @@
+# Based on upptime/upptime (uptime-monitor v1.44.1).
+name: Summary CI
+on:
+  schedule:
+    - cron: "0 0 * * *"
+  repository_dispatch:
+    types: [summary]
+  workflow_dispatch:
+permissions: {}
+concurrency:
+  group: ${{ github.repository }}-${{ github.ref_name }}-upptime
+  cancel-in-progress: false
+jobs:
+  release:
+    name: Generate README
+    if: github.ref == 'refs/heads/master' && vars.UPPTIME_MONITORING_ENABLED == 'true'
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      issues: read
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v6
+        with:
+          ref: master
+          token: ${{ github.token }}
+      - name: Update summary in README
+        uses: upptime/uptime-monitor@v1.44.1
+        with:
+          command: readme
+        env:
+          GH_PAT: ${{ github.token }}

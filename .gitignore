@@ -1,0 +1,3 @@
+# Local upstream status-page builds; never commit generated website files here.
+/site/
+/node_modules/

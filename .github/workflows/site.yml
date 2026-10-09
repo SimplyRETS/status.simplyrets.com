@@ -1,0 +1,69 @@
+# Based on upptime/upptime (uptime-monitor v1.44.1).
+# Branch publication uses GITHUB_TOKEN, followed by an explicit Pages build.
+name: Static Site CI
+on:
+  push:
+    branches: [master]
+    paths:
+      - "assets/**"
+  schedule:
+    - cron: "0 1 * * *"
+  repository_dispatch:
+    types: [static_site]
+  workflow_dispatch:
+permissions: {}
+concurrency:
+  group: ${{ github.repository }}-${{ github.ref_name }}-upptime
+  cancel-in-progress: false
+jobs:
+  release:
+    name: Build and deploy site
+    if: >-
+      github.ref == 'refs/heads/master' &&
+      vars.UPPTIME_PUBLISH_ENABLED == 'true' &&
+      !contains(github.event.head_commit.message, '[skip ci]')
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      pages: write
+    steps:
+      - name: Verify Pages publishing source
+        uses: actions/github-script@v8
+        with:
+          script: |
+            const { data } = await github.rest.repos.getPages(context.repo);
+            if (data.build_type !== 'legacy' || data.source?.branch !== 'gh-pages' || data.source?.path !== '/') {
+              throw new Error('Configure Pages to deploy from gh-pages / (root) before publishing.');
+            }
+            if (data.cname !== 'status.simplyrets.com') {
+              throw new Error('Keep the existing status.simplyrets.com custom domain before publishing.');
+            }
+      - name: Checkout
+        uses: actions/checkout@v6
+        with:
+          ref: master
+          token: ${{ github.token }}
+      - name: Verify monitoring has been initialized
+        run: test -s history/summary.json
+      - name: Generate site
+        uses: upptime/uptime-monitor@v1.44.1
+        with:
+          command: site
+        env:
+          GH_PAT: ${{ github.token }}
+      - name: GitHub Pages Deploy
+        uses: peaceiris/actions-gh-pages@v4
+        with:
+          github_token: ${{ github.token }}
+          publish_branch: gh-pages
+          publish_dir: site/status-page/__sapper__/export/
+          force_orphan: false
+          user_name: Upptime Bot
+          user_email: 73812536+upptime-bot@users.noreply.github.com
+      # GITHUB_TOKEN pushes do not trigger Pages builds automatically.
+      - name: Request GitHub Pages build
+        uses: actions/github-script@v8
+        with:
+          script: |
+            const { data } = await github.rest.repos.requestPagesBuild(context.repo);
+            core.info(`Pages build requested: ${data.url} (status: ${data.status}). Verify completion in Pages deployments.`);

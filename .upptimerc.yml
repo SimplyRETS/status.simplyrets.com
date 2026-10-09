@@ -1,0 +1,44 @@
+# Upptime configuration and generated monitoring data live on master.
+owner: SimplyRETS
+repo: status.simplyrets.com
+user-agent: SimplyRETS
+
+# These public production routes return 200 with an empty body. No credentials
+# or body assertions are needed. Timing/retry settings use upstream defaults.
+sites:
+  - name: API
+    slug: api-health
+    url: https://api.simplyrets.com/health
+    expectedStatusCodes:
+      - 200
+  - name: Website
+    slug: site-health
+    url: https://simplyrets.com/health
+    expectedStatusCodes:
+      - 200
+
+assignees: []
+secrets: []
+# Avoid deleting short-lived incidents or modifying repository settings.
+skipDeleteIssues: true
+skipDescriptionUpdate: true
+skipTopicsUpdate: true
+skipHomepageUpdate: true
+
+status-website:
+  cname: status.simplyrets.com
+  name: SimplyRETS System Status
+  logoUrl: https://status.simplyrets.com/logo.png
+  favicon: https://status.simplyrets.com/favicon.png
+  introTitle: "**SimplyRETS** System Status"
+  introMessage: "Reported incidents and automated reachability checks for the SimplyRETS API and website. Green checks do not rule out an active incident; see incident updates below."
+  navbar:
+    - title: Status
+      href: /
+    - title: SimplyRETS
+      href: https://simplyrets.com
+    - title: GitHub
+      href: https://github.com/SimplyRETS/status.simplyrets.com
+
+# No workflowSchedule overrides: workflows retain Upptime's default schedules.
+# Activation is controlled by repository variables in the workflows, not here.
