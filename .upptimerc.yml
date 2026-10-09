@@ -39,10 +39,10 @@ status-website:
   navbar:
     - title: Status
       href: /
+    - title: Docs
+      href: https://docs.simplyrets.com
     - title: SimplyRETS
       href: https://simplyrets.com
-    - title: GitHub
-      href: https://github.com/SimplyRETS/status.simplyrets.com
 
 i18n:
   footer: "© 2026 SimplyRETS"
