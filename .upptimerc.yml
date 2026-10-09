@@ -1,7 +1,7 @@
 # Upptime configuration and generated monitoring data live on master.
 owner: SimplyRETS
 repo: status.simplyrets.com
-user-agent: SimplyRETS
+user-agent: SimplyRETS-Status/1.0
 
 # These public production routes return 200 with an empty body. No credentials
 # or body assertions are needed. Timing/retry settings use upstream defaults.
@@ -28,6 +28,10 @@ skipHomepageUpdate: true
 status-website:
   cname: status.simplyrets.com
   name: SimplyRETS System Status
+  theme: dark
+  links:
+    - rel: stylesheet
+      href: https://status.simplyrets.com/theme.css
   logoUrl: https://status.simplyrets.com/logo.png
   favicon: https://status.simplyrets.com/favicon.png
   introTitle: "**SimplyRETS** System Status"
@@ -39,6 +43,9 @@ status-website:
       href: https://simplyrets.com
     - title: GitHub
       href: https://github.com/SimplyRETS/status.simplyrets.com
+
+i18n:
+  footer: "© 2026 SimplyRETS"
 
 # No workflowSchedule overrides: workflows retain Upptime's default schedules.
 # Activation is controlled by repository variables in the workflows, not here.
